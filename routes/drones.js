@@ -33,7 +33,7 @@ router.post('/drones/create', (req, res, next) => {
   console.log(droneData);
   Drone.create(droneData)
   .then(createdDrone => {
-    res.send("you created a new drone")
+    res.redirect("/drones");
   })
   .catch( err => {
     console.log("error getting drones from DB", err);
@@ -62,7 +62,7 @@ router.post('/drones/:id/edit', (req, res, next) => {
     propellers: req.body.propellers,
     maxSpeed: req.body.maxSpeed,
   }
-  
+
   Drone.updateOne(data)
   .then(updatedDrone => {
     res.send("your drone have been uopdated");
@@ -76,7 +76,16 @@ router.post('/drones/:id/edit', (req, res, next) => {
 
 router.post('/drones/:id/delete', (req, res, next) => {
   // Iteration #5: Delete the drone
-  // ... your code here
+  console.log(req.params.id);
+  Drone.findByIdAndDelete(req.params.id)
+  .then( deletedDrone => {    
+    res.redirect("/drones");
+  })
+  .catch( err => {
+    console.log("Error getting book details from DB...", err);
+    next();
+  });
+
 });
 
 module.exports = router;
