@@ -1,8 +1,18 @@
 body {
   padding: 50px;
   font: 14px 'Lucida Grande', Helvetica, Arial, sans-serif;
+  text-align: center;
+  background-color: skyblue;
+  margin: 10px;
+
 }
 
-a {
-  color: #00b7ff;
+button {
+  margin-top: 10px;
+}
+
+
+#create-btn {
+ margin-top: 30px;
+
 }
