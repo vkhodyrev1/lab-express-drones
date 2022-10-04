@@ -52,7 +52,7 @@ router.get('/drones/:droneId/edit', (req, res, next) => {
       console.log("Error getting book details from DB...", err);
       next();
     });
-  res.render("drones/update-form")
+  //res.render("drones/update-form")
 });
 
 router.post('/drones/:droneId/edit', (req, res, next) => {
