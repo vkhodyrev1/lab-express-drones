@@ -68,7 +68,7 @@ router.post('/drones/:droneId/edit', (req, res, next) => {
 
   Drone.findByIdAndUpdate(droneId, newDetails)
     .then(() => {
-      res.redirect(`/drones/${droneId}`);
+      res.redirect(`/drones`);
     })
     .catch(err => {
       console.log("Error updating book...", err);
